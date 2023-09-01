@@ -59,7 +59,7 @@ void GetHardwareInfo(
         int &latency_dram,
         int &max_dyn_smem_per_cta)
 {
-    if (device_arch == 75) {
+    if (device_arch == 72) {
         if( type == ppl::common::DATATYPE_FLOAT16 ) {
             cpi_mma = CPI_SM75_HMMA1688;
             latency_mma = LATENCY_SM75_HMMA1688;
@@ -159,7 +159,7 @@ void GetIdxnMmaInfo(
         int &n_mma_max,
         int &k_mma_max)
 {
-    if (device_arch == 75) {
+    if (device_arch == 72) {
         if( type == ppl::common::DATATYPE_FLOAT16 ) {
             mma_shape = "hmma1688";
             m_mma = 16;
@@ -223,7 +223,7 @@ void Get2spkMmaInfo(
         int &k_blk_mma,
         int &buf_num_max)
 {
-    if (device_arch == 75) {
+    if (device_arch == 72) {
         if( type == ppl::common::DATATYPE_FLOAT16 ) {
             mma_shape = "hmma1688";
             m_mma = 16;
@@ -275,7 +275,7 @@ void GetSwzlMmaInfo(
         int &k_blk_mma,
         int &buf_num_max)
 {
-    if (device_arch == 75) {
+    if (device_arch == 72) {
         if( type == ppl::common::DATATYPE_FLOAT16 ) {
             mma_shape = "hmma1688";
             m_mma = 8;

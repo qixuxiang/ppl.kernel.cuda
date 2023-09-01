@@ -198,7 +198,7 @@ __inline__ void InitializeFP16ConvKernelContainer(std::vector<kernel_info_t> &g_
 {
 #ifndef PPLNN_ENABLE_CUDA_JIT
     if (type == ppl::common::DATATYPE_FLOAT16) {
-        if (device_prop.major == 7 && device_prop.minor == 5) {
+        if (device_prop.major == 7 && device_prop.minor == 2) {
 #if __CUDACC_VER_MAJOR__ * 1000 + __CUDACC_VER_MINOR__ * 10 >= 10020
             // sm75 kernels
             Initialize2spkSM75FP16Hmma1688ConvF1KernelContainer(g_fp16_kvec);
@@ -1000,7 +1000,7 @@ ppl::common::RetCode GetFp16ConvKernelNominees(
 
     int sm_num = device_prop.multiProcessorCount;
     int device_arch      = device_prop.major * 10 + device_prop.minor;
-    if (device_arch < 75) {
+    if (device_arch < 72) {
         LOG(ERROR)<<"pplnn should be compiled on cuda >= 10.2 and run on architeture >= sm_75";
         return ppl::common::RC_UNSUPPORTED;
     }

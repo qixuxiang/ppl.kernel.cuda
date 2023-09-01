@@ -19,7 +19,7 @@
 __global__ void __launch_bounds__(CTA_SIZE_IN_THD) KERNEL_NAME(TOTAL_KPARAM_LIST)
 #endif
 {
-#if (__CUDA_ARCH__ >= 750) && (__CUDACC_VER_MAJOR__  * 1000  + __CUDACC_VER_MINOR__ * 10  >= 10020)
+#if (__CUDA_ARCH__ >= 720) && (__CUDACC_VER_MAJOR__  * 1000  + __CUDACC_VER_MINOR__ * 10  >= 10020)
     int C[C_ITEMS_PER_THD];
 
     int16_t *  CvHalf = (int16_t *)  C;

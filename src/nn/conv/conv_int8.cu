@@ -212,7 +212,7 @@ __inline__ void InitializeInt8ConvKernelContainer(std::vector<kernel_info_t> &g_
 {
 #ifndef PPLNN_ENABLE_CUDA_JIT
     if(type == ppl::common::DATATYPE_INT8) {
-        if (device_prop.major == 7 && device_prop.minor == 5) {
+        if (device_prop.major == 7 && device_prop.minor == 2) {
 #if (__CUDACC_VER_MAJOR__ * 1000 + __CUDACC_VER_MINOR__ * 10 >= 10020)
             // sm75 kernels
             Initialize2spkSM75Int8Imma8816ConvF1KernelContainer(g_int8_kvec);
@@ -770,7 +770,7 @@ ppl::common::RetCode GetInt8ConvKernelNominees(
 
     int sm_num = device_prop.multiProcessorCount;
     int device_arch      = device_prop.major * 10 + device_prop.minor;
-    if (device_arch < 75) {
+    if (device_arch < 72) {
         LOG(ERROR)<<"pplnn should be compiled on cuda >= 10.2 and run on architeture >= sm_75";
         return ppl::common::RC_UNSUPPORTED;
     }

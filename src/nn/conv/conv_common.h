@@ -366,7 +366,7 @@ struct kernel_info_t {
 
     bool CheckSMemSizeFeasible(const cudaDeviceProp& device_prop)
     {
-        if (device_prop.major == 7 && device_prop.minor == 5)
+        if (device_prop.major == 7 && device_prop.minor == 2)
             return (smem_size <= SM75_MAX_DYN_SMEM_SIZE_PER_CTA);
 
         if (device_prop.major == 8 && device_prop.minor == 0)

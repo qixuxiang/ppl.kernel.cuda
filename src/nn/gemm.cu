@@ -100,7 +100,7 @@ void init_f1_kvec(std::vector<kernel_info_t> &g_fp16_kvec, const cudaDeviceProp&
 
 #ifndef PPLNN_ENABLE_CUDA_JIT
     if (type == ppl::common::DATATYPE_FLOAT16) {
-        if (device_prop.major == 7 && device_prop.minor == 5) {
+        if (device_prop.major == 7 && device_prop.minor == 2) {
 #if __CUDACC_VER_MAJOR__ * 1000 + __CUDACC_VER_MINOR__ * 10 >= 10020
             Initialize2spkSM75FP16Hmma1688ConvF1KernelContainer(g_fp16_kvec);
 #endif
